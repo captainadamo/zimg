@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="align.h" />
+    <ClInclude Include="alloc.h" />
     <ClInclude Include="cpuinfo.h" />
     <ClInclude Include="except.h" />
     <ClInclude Include="linebuffer.h" />

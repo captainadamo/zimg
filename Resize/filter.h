@@ -117,18 +117,18 @@ struct FilterContext {
 	/**
 	 * Number of coefficients in a filter row.
 	 */
-	int filter_width;
+	unsigned filter_width;
 
 	/**
 	 * Total number of filter rows.
 	 */
-	int filter_rows;
+	unsigned filter_rows;
 
 	/**
 	 * Distance between filter rows in units of coefficients.
 	 */
-	ptrdiff_t stride;
-	ptrdiff_t stride_i16;
+	unsigned stride;
+	unsigned stride_i16;
 
 	/**
 	 * Filter data.

@@ -28,6 +28,11 @@ class LineBuffer {
 	}
 public:
 	/**
+	 * Default initialize LineBuffer.
+	 */
+	LineBuffer() = default;
+
+	/**
 	 * Initialize a LineBuffer with a given buffer.
 	 *
 	 * @param ptr pointer to buffer
@@ -103,6 +108,14 @@ template <class T, class U>
 const LineBuffer<T> &buffer_cast(const LineBuffer<U> &x)
 {
 	return reinterpret_cast<const LineBuffer<T> &>(x);
+}
+
+template <class T>
+void copy_buffer_lines(const LineBuffer<T> &src, LineBuffer<T> &dst, unsigned bytes, unsigned first, unsigned last)
+{
+	for (unsigned n = first; n < last; ++n) {
+		std::copy_n((const char *)src[n], bytes, (char *)dst[n]);
+	}
 }
 
 } // namespace zimg

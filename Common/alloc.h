@@ -29,7 +29,7 @@ public:
 	 *
 	 * @param ptr pointer to buffer
 	 */
-	LinearAllocator(char *ptr) : m_ptr{ ptr }
+	LinearAllocator(void *ptr) : m_ptr{ reinterpret_cast<char *>(ptr) }
 	{
 	}
 
@@ -43,7 +43,7 @@ public:
 	template <class T = void>
 	T *allocate(size_t bytes)
 	{
-		return increment_and_return(align(bytes, ALIGNMENT));
+		return increment_and_return<T>(align(bytes, ALIGNMENT));
 	}
 
 	/**
